@@ -1,0 +1,108 @@
+// ==========================================================
+//  BASE (reset + tipografía global)
+// ==========================================================
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: $font-base;
+  @include text-style(16px, 24px, 18px, 27px);
+  color: $color-gray-50;
+  background-color: $color-gray-10;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+// Icono SVG reutilizable (sprite)
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+// Títulos y párrafos de contenido (componente genérico)
+.heading {
+  color: $color-black;
+  font-weight: 700;
+
+  &--h2 {
+    @include text-style(32px, 38px, 40px, 48px, 700);
+  }
+
+  &--h3 {
+    @include text-style(28px, 35px, 28px, 36px, 700);
+  }
+
+  &--h4 {
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 700;
+  }
+
+  &--light {
+    color: $color-white;
+  }
+}
+
+.text {
+  margin: 0;
+
+  &--light {
+    color: $color-white;
+  }
+}

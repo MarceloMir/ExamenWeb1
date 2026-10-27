@@ -1,0 +1,97 @@
+// ---------- Componente: hero / masthead ----------
+.hero {
+  position: relative;
+  color: $color-white;
+  overflow: hidden;
+
+  &__media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 540px;
+    background: url('../img/hero-planta.jpg') center / cover no-repeat;
+    background-color: $color-blue-dark;
+  }
+
+  // Cuadrados decorativos de la marca
+  &__pattern {
+    position: absolute;
+    top: 540px;
+    right: 0;
+    width: 0;
+    height: 0;
+    margin-top: -112px;
+    margin-right: 78px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 34px;
+      height: 34px;
+      background-color: $color-blue-light;
+      box-shadow: 34px 0 0 $color-blue-light, 0 34px 0 $color-blue-light, 34px * 2 34px * 2 0 $color-blue-light;
+
+      @include respond($bp-desktop) {
+        width: 56px;
+        height: 56px;
+        box-shadow: 56px 0 0 $color-blue-light, 0 56px 0 $color-blue-light, 56px * 2 56px 0 $color-blue-light, 56px * 3 0 0 $color-blue-light;
+      }
+    }
+  }
+
+  &__inner {
+    position: relative;
+    @include page-gutter;
+    padding-top: 305px;
+    padding-bottom: $space-xxl;
+
+    @include respond($bp-desktop) {
+      min-height: 660px;
+      padding-top: 379px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__panel {
+    @include flex(column, center, flex-start, $space-md);
+    background: linear-gradient(180deg, $color-blue-50 0%, $color-blue 100%);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    padding: $space-xl;
+
+    @include respond($bp-desktop) {
+      width: 636px;
+      min-height: 281px;
+      padding: $space-xxl;
+    }
+  }
+
+  &__breadcrumb {
+    @include flex(row, flex-start, center, $space-xxs);
+    flex-wrap: wrap;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  &__crumb {
+    @include flex(row, flex-start, center, $space-xxs);
+    color: $color-white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__title {
+    @include text-style(40px, 46px, 56px, 64px, 700);
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}

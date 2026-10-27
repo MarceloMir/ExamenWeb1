@@ -1,0 +1,21 @@
+// ==========================================================
+//  main.scss  ·  Punto de entrada de Sass
+//  Compilar:  sass scss/main.scss css/style.css
+// ==========================================================
+
+// 1. Configuración
+@import 'variables';
+@import 'mixins';
+
+// 2. Base
+@import 'base';
+
+// 3. Componentes (BEM)
+@import 'components/button';
+@import 'components/nav';
+@import 'components/hero';
+@import 'components/layout';
+@import 'components/content';
+@import 'components/sidebar';
+@import 'components/sections';
+@import 'components/footer';

@@ -1,0 +1,286 @@
+// ---------- Componentes de contenido editorial ----------
+
+// Tarjetas "Our Project Approach" (CSS Grid 2 x 2)
+.feature-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: $space-xl $space-lg;
+
+  @include respond($bp-tablet) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  &__item {
+    @include flex(column, flex-start, stretch, $space-xs);
+    padding-top: $space-md;
+    border-top: 4px solid $color-green;
+  }
+
+  &__title {
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 700;
+    color: $color-black;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+// Texto + foto con pie de foto
+.wrap {
+  @include flex(column, flex-start, stretch, $space-lg);
+
+  @include respond($bp-tablet) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  &__text {
+    flex: none;
+
+    @include respond($bp-tablet) {
+      flex: 0 1 296px;
+    }
+  }
+
+  &__figure {
+    flex: none;
+    min-width: 0;
+
+    @include respond($bp-tablet) {
+      flex: 1 1 0;
+    }
+  }
+}
+
+.figure {
+  &__img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  &__caption {
+    padding-top: $space-xs;
+    font-size: 13px;
+    line-height: 20px;
+    color: $color-gray-50;
+  }
+}
+
+// Lista con viñeta cuadrada verde
+.bullet-list {
+  @include flex(column, flex-start, stretch, $space-md);
+
+  &__item {
+    position: relative;
+    padding-left: $space-lg;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 12px;
+      height: 6px;
+      background-color: $color-green-dark;
+    }
+  }
+}
+
+// Cifras destacadas
+.stats {
+  @include flex(column, flex-start, stretch, $space-xxl);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: $space-md;
+
+    @include respond($bp-desktop) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: $space-lg;
+    }
+  }
+
+  &--aside &__grid {
+    @include respond($bp-desktop) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: $space-xs;
+    }
+  }
+
+  &__item {
+    @include flex(column, center, center, $space-xs);
+    padding: $space-md $space-sm;
+    text-align: center;
+    border: 1px solid $color-green;
+    border-radius: $radius-base;
+  }
+
+  &__number {
+    font-size: 56px;
+    line-height: 64px;
+    font-weight: 700;
+    color: $color-black;
+  }
+
+  &__label {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+// Tabla de datos
+.data-table {
+  @include flex(column, flex-start, stretch, $space-lg);
+
+  &__scroll {
+    overflow-x: auto;
+  }
+
+  &__table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    background-color: $color-white;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__cell {
+    padding: $space-sm $space-lg;
+    text-align: left;
+    border: 1px solid $color-green;
+
+    &--head {
+      font-weight: 700;
+      color: $color-black;
+      background-color: $color-field;
+    }
+  }
+}
+
+// Cita en bloque
+.quote {
+  position: relative;
+  @include flex(column, flex-start, stretch);
+
+  @include respond($bp-tablet) {
+    flex-direction: row;
+    align-items: center;
+    padding: $space-lg 0;
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+
+    @include respond($bp-tablet) {
+      flex: 0 0 43%;
+      width: 43%;
+    }
+  }
+
+  &__body {
+    position: relative;
+    @include flex(column, center, flex-start, $space-md);
+    flex: 1 1 0;
+    padding: $space-xl;
+    background-color: $color-white;
+
+    @include respond($bp-tablet) {
+      margin-left: -32px;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 700;
+    color: $color-black;
+  }
+
+  &__name {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+    color: $color-black;
+  }
+
+  &__role {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &--blue &__body {
+    background-color: $color-blue;
+  }
+
+  &--blue &__text,
+  &--blue &__name,
+  &--blue &__role {
+    color: $color-white;
+  }
+
+  &--plain &__body {
+    margin-left: 0;
+    background-color: transparent;
+  }
+
+  &--vertical {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+  }
+
+  &--vertical &__img {
+    flex: none;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
+
+  &--vertical &__body {
+    margin: -32px $space-md 0;
+  }
+}
+
+// Lista con iconos
+.icon-list {
+  @include flex(column, flex-start, stretch, $space-xl);
+
+  &__item {
+    @include flex(row, flex-start, flex-start, $space-md);
+  }
+
+  &__icon {
+    @include flex(row, center, center);
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    color: $color-white;
+    background-color: $color-blue;
+    border-radius: $radius-full;
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    color: $color-black;
+
+    @include respond($bp-desktop) {
+      font-size: 28px;
+      line-height: 36px;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 27px;
+  }
+}

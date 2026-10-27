@@ -1,0 +1,86 @@
+// ---------- Componente: botón ----------
+.btn {
+  @include flex(row, center, center, $space-xs);
+  min-height: 50px;
+  padding: $space-xs $space-lg;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  &--primary {
+    @include button-variant($color-blue, $color-white, $color-blue);
+
+    &:hover {
+      background-color: $color-blue-medium;
+    }
+  }
+
+  &--secondary {
+    @include button-variant(transparent, $color-blue, $color-blue);
+
+    &:hover {
+      background-color: $color-blue-08;
+    }
+  }
+
+  &--tertiary {
+    @include button-variant($color-white, $color-blue, $color-blue);
+
+    &:hover {
+      background-color: $color-gray-10;
+    }
+  }
+
+  &--light {
+    @include button-variant($color-white, $color-blue, $color-white);
+
+    &:hover {
+      background-color: $color-gray-20;
+    }
+  }
+
+  &--outline-light {
+    @include button-variant(transparent, $color-white, $color-white);
+
+    &:hover {
+      background-color: $color-white-30;
+    }
+  }
+
+  &--small {
+    min-height: 40px;
+    padding: $space-xxs $space-md;
+  }
+}
+
+// Botón cuadrado solo con icono (redes, flechas)
+.icon-btn {
+  @include flex(row, center, center);
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: $color-blue;
+  background-color: $color-gray-10;
+  border: 0;
+
+  &:hover {
+    background-color: $color-gray-20;
+  }
+
+  &--light {
+    color: $color-white;
+    background-color: transparent;
+    border: 1px solid $color-white;
+
+    &:hover {
+      background-color: $color-white-30;
+    }
+  }
+
+  &--outline {
+    background-color: $color-white;
+    border: 1px solid $color-blue;
+  }
+}

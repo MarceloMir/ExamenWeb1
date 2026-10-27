@@ -1,0 +1,229 @@
+// ---------- Componentes de la barra lateral ----------
+
+// Tarjeta de datos del proyecto
+.facts {
+  @include flex(column, flex-start, stretch, $space-xl);
+  padding: $space-xl;
+  background-color: $color-white;
+
+  &__group {
+    @include flex(column, flex-start, stretch, $space-xs);
+  }
+
+  &__label {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    color: $color-black;
+  }
+
+  &__value {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &__tags {
+    @include flex(row, flex-start, center, $space-xs);
+    flex-wrap: wrap;
+  }
+
+  &__person {
+    @include flex(row, flex-start, center, $space-md);
+  }
+
+  &__photo {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: $radius-full;
+  }
+
+  &__name {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+    color: $color-black;
+  }
+
+  &__job {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+// Etiqueta
+.tag {
+  display: inline-block;
+  padding: $space-xs $space-md;
+  font-size: 14px;
+  line-height: 20px;
+  color: $color-blue;
+  background-color: $color-blue-08;
+  border-radius: $radius-full;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $color-blue-30;
+  }
+}
+
+// Contenido relacionado
+.related {
+  @include flex(column, flex-start, stretch, $space-sm);
+
+  &__title {
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 700;
+    color: $color-black;
+  }
+
+  &__card {
+    @include flex(column, flex-end, flex-start, $space-md);
+    min-height: 309px;
+    padding: $space-xl;
+    color: $color-white;
+    background:
+      linear-gradient(180deg, rgba(6, 43, 111, 0.2) 0%, $color-blue-dark 75%),
+      url('../img/planta-verde.jpg') center / cover no-repeat;
+    background-color: $color-blue-medium;
+  }
+
+  &__kicker {
+    @include flex(row, flex-start, center, $space-xs);
+    font-size: 16px;
+    line-height: 24px;
+
+    &::before {
+      content: '';
+      width: 20px;
+      height: 10px;
+      background-color: $color-green;
+    }
+  }
+
+  &__heading {
+    font-size: 28px;
+    line-height: 35px;
+    font-weight: 700;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 24px;
+    color: $color-gray-20;
+  }
+}
+
+// Formulario de suscripción
+.signup {
+  @include flex(column, flex-start, stretch, $space-lg);
+  padding: $space-xl;
+  background-color: $color-white;
+
+  &__title {
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 700;
+    color: $color-black;
+  }
+
+  &__form {
+    @include flex(column, flex-start, stretch, $space-md);
+  }
+
+  &__field {
+    @include flex(column, flex-start, stretch, $space-xxs);
+  }
+
+  &__label {
+    font-size: 16px;
+    line-height: 24px;
+    color: $color-black;
+  }
+
+  &__input {
+    width: 100%;
+    min-height: 44px;
+    padding: $space-xs $space-sm;
+    font: inherit;
+    font-size: 14px;
+    color: $color-gray-50;
+    background-color: $color-field;
+    border: 1px solid $color-gray-40;
+    border-radius: $radius-base;
+
+    &:focus {
+      outline: 3px solid $color-blue-light;
+      outline-offset: 1px;
+    }
+  }
+
+  &__help {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+// Tarjeta de experto
+.expert-card {
+  @include flex(column, flex-start, stretch);
+
+  &__photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  &__body {
+    position: relative;
+    @include flex(column, flex-start, stretch, $space-xs);
+    margin: -32px $space-md 0;
+    padding: $space-lg;
+    background-color: $color-white;
+    box-shadow: $shadow-card;
+  }
+
+  &__name {
+    font-size: 28px;
+    line-height: 35px;
+    font-weight: 700;
+    color: $color-black;
+  }
+
+  &__job {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    color: $color-blue;
+  }
+
+  &__bio {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__social {
+    @include flex(row, flex-start, center, $space-xs);
+    padding-top: $space-xs;
+  }
+}
+
+// Bloque "Title + texto + botón + tarjetas de expertos"
+.experts {
+  @include flex(column, flex-start, stretch, $space-xxl);
+
+  &__head {
+    @include flex(column, flex-start, flex-start, $space-md);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: $space-lg;
+
+    @include respond($bp-tablet) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}

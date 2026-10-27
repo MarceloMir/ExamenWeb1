@@ -1,0 +1,55 @@
+// ==========================================================
+//  VARIABLES (tokens tomados del archivo Figma)
+// ==========================================================
+
+// --- Colores de marca
+$color-blue:        #003087;
+$color-blue-dark:   #001c4f;
+$color-blue-medium: #062b6f;
+$color-blue-light:  #0775bd;
+$color-green:       #7ac143;
+$color-green-dark:  #609933;
+$color-teal:        #027587;
+
+// --- Neutros
+$color-white:    #ffffff;
+$color-gray-10:  #f4f5f5;
+$color-gray-20:  #e5e7ea;
+$color-gray-30:  #b5bcc9;
+$color-gray-40:  #788a96;
+$color-gray-50:  #424f57;
+$color-black:    #1e1e1e;
+$color-field:    #f0f3f8;
+
+// --- Transparencias
+$color-blue-08:   rgba(0, 48, 135, 0.08);
+$color-blue-30:   rgba(0, 48, 135, 0.3);
+$color-blue-50:   rgba(0, 48, 135, 0.5);
+$color-white-30:  rgba(255, 255, 255, 0.3);
+$color-black-08:  rgba(0, 0, 0, 0.08);
+
+// --- Tipografía
+$font-base: 'Roboto', 'Segoe UI', Arial, sans-serif;
+
+// --- Breakpoints (mobile first)
+$bp-tablet:  768px;
+$bp-desktop: 1024px;
+
+// --- Espaciados
+$space-xxs: 4px;
+$space-xs:  8px;
+$space-sm:  12px;
+$space-md:  16px;
+$space-lg:  24px;
+$space-xl:  32px;
+$space-xxl: 40px;
+$space-xxxl: 64px;
+
+// --- Anchos
+$max-width: 1440px;
+$max-content: 1296px;
+
+// --- Otros
+$radius-base: 5px;
+$radius-full: 999px;
+$shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);

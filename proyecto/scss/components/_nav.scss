@@ -1,0 +1,87 @@
+// ---------- Componente: navegación ----------
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: $space-md $space-lg;
+
+  @include respond($bp-desktop) {
+    padding: $space-lg 72px;
+  }
+
+  &__bar {
+    @include flex(row, space-between, center, $space-lg);
+    @include glass($color-blue-50);
+    min-height: 62px;
+    padding: $space-xxs $space-md;
+    color: $color-white;
+
+    @include respond($bp-desktop) {
+      min-height: 72px;
+      padding: $space-xs $space-lg;
+    }
+  }
+
+  &__side {
+    @include flex(row, flex-start, center, $space-xs);
+    flex: 1 1 0;
+
+    &--end {
+      justify-content: flex-end;
+    }
+  }
+
+  &__link {
+    @include flex(row, center, center, $space-xxs);
+    padding: $space-xs $space-md;
+    color: $color-white;
+    font-size: 16px;
+    line-height: 18px;
+    text-decoration: none;
+    background: none;
+    border: 0;
+
+    &:hover {
+      background-color: $color-white-30;
+    }
+  }
+
+  &__label {
+    display: none;
+
+    @include respond($bp-desktop) {
+      display: inline;
+    }
+  }
+
+  &__lang {
+    display: none;
+    font-size: 14px;
+    line-height: 16px;
+
+    @include respond($bp-desktop) {
+      @include flex(row, center, center, $space-xs);
+    }
+  }
+}
+
+// Logo (versión texto del logotipo CDM Smith)
+.logo {
+  @include flex(column, center, flex-start);
+  color: $color-white;
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 1;
+
+  &__mark {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  &__word {
+    font-size: 17px;
+    font-weight: 400;
+  }
+}

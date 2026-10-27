@@ -1,0 +1,61 @@
+// ---------- Layout principal (CSS Grid) ----------
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: $space-xxxl;
+  max-width: $max-width;
+  margin: 0 auto;
+  @include page-gutter;
+  padding-top: 48px;
+  padding-bottom: 48px;
+
+  @include respond($bp-desktop) {
+    grid-template-columns: minmax(0, 856fr) minmax(0, 392fr);
+    column-gap: 48px;
+    align-items: start;
+    padding-top: $space-xxxl;
+    padding-bottom: $space-xxxl;
+  }
+
+  &--wide {
+    @include respond($bp-desktop) {
+      grid-template-columns: minmax(0, 856fr) minmax(0, 392fr);
+    }
+  }
+
+  &__main {
+    @include flex(column, flex-start, stretch, $space-xxxl);
+    min-width: 0;
+  }
+
+  &__aside {
+    @include flex(column, flex-start, stretch, $space-xxl);
+    min-width: 0;
+  }
+}
+
+// Bloque de contenido editorial (título + párrafos)
+.content {
+  @include flex(column, flex-start, stretch, $space-xxl);
+
+  &__group {
+    @include flex(column, flex-start, stretch, $space-md);
+  }
+}
+
+// Sección de ancho completo con contenedor centrado
+.section {
+  @include page-gutter;
+  padding-top: 48px;
+  padding-bottom: 48px;
+
+  @include respond($bp-desktop) {
+    padding-top: $space-xxxl;
+    padding-bottom: $space-xxxl;
+  }
+
+  &__inner {
+    max-width: $max-content;
+    margin: 0 auto;
+  }
+}

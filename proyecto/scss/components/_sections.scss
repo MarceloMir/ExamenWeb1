@@ -1,0 +1,342 @@
+// ---------- Secciones de ancho completo ----------
+
+// Slider de imagen + texto
+.slider {
+  position: relative;
+  color: $color-white;
+  background:
+    linear-gradient($color-blue-30, $color-blue-30),
+    url('../img/hero-planta.jpg') center / cover no-repeat;
+  background-color: $color-blue-dark;
+
+  &--alt {
+    background:
+      linear-gradient($color-blue-30, $color-blue-30),
+      url('../img/obra-equipo.jpg') center / cover no-repeat;
+    background-color: $color-blue-dark;
+  }
+
+  // El segundo slide solo aparece en escritorio (en móvil se muestra uno)
+  &--desktop-only {
+    display: none;
+
+    @include respond($bp-desktop) {
+      display: block;
+    }
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: $space-xl;
+    max-width: $max-width;
+    min-height: 620px;
+    margin: 0 auto;
+    @include page-gutter;
+    padding-top: $space-xxxl;
+    padding-bottom: $space-xxxl;
+    align-content: center;
+
+    @include respond($bp-desktop) {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 3fr);
+      grid-template-areas: 'title figure note';
+      align-items: center;
+      min-height: 810px;
+      column-gap: $space-xxl;
+    }
+  }
+
+  &__title {
+    @include text-style(40px, 46px, 56px, 64px, 700);
+
+    @include respond($bp-desktop) {
+      grid-area: title;
+    }
+  }
+
+  &__figure {
+    @include flex(row, center, flex-end);
+    height: 375px;
+    background-color: $color-blue-light;
+    overflow: hidden;
+
+    @include respond($bp-desktop) {
+      grid-area: figure;
+      height: 500px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 30% bottom;
+  }
+
+  &__note {
+    @include glass($color-blue-50);
+    padding: $space-lg;
+    font-size: 18px;
+    line-height: 27px;
+
+    @include respond($bp-desktop) {
+      grid-area: note;
+    }
+  }
+
+  &__dots {
+    @include flex(row, flex-start, center, $space-xs);
+    margin-top: $space-md;
+  }
+
+  &__dot {
+    width: 20px;
+    height: 8px;
+    background-color: $color-white-30;
+
+    &--active {
+      width: 100px;
+      background-color: $color-white;
+    }
+  }
+}
+
+// Bloque de vídeo
+.video {
+  @include flex(column, flex-start, stretch, $space-lg);
+  padding: $space-xl;
+  background-color: $color-white;
+
+  @include respond($bp-desktop) {
+    flex-direction: row;
+    align-items: center;
+    padding: $space-xxl;
+  }
+
+  &__text {
+    @include flex(column, flex-start, flex-start, $space-md);
+
+    @include respond($bp-desktop) {
+      flex: 0 0 392px;
+    }
+  }
+
+  &__media {
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  &__poster {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  &__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include flex(row, center, center);
+    width: 64px;
+    height: 64px;
+    margin: -32px 0 0 -32px;
+    color: $color-white;
+    background-color: $color-blue;
+    border: 0;
+    border-radius: $radius-full;
+
+    &:hover {
+      background-color: $color-blue-medium;
+    }
+  }
+}
+
+// Galería
+.gallery {
+  color: $color-white;
+  background-color: $color-blue-dark;
+
+  &__inner {
+    @include flex(column, flex-start, stretch, $space-xxl);
+    max-width: $max-width;
+    margin: 0 auto;
+    @include page-gutter;
+    padding-top: $space-xxxl;
+    padding-bottom: $space-xxxl;
+  }
+
+  &__head {
+    @include flex(column, flex-start, stretch, $space-xs);
+  }
+
+  &__track {
+    @include flex(row, flex-start, flex-start, $space-lg);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: $space-xs;
+  }
+
+  &__slide {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+
+    @include respond($bp-desktop) {
+      flex-basis: 60%;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  &__caption {
+    padding-top: $space-xs;
+    font-size: 13px;
+    line-height: 20px;
+    color: $color-gray-20;
+  }
+
+  &__controls {
+    @include flex(row, space-between, center);
+  }
+
+  &__dots {
+    @include flex(row, flex-start, center, $space-xs);
+  }
+
+  &__dot {
+    width: 20px;
+    height: 8px;
+    background-color: $color-white-30;
+
+    &--active {
+      width: 40px;
+      background-color: $color-green;
+    }
+  }
+
+  &__arrows {
+    @include flex(row, flex-end, center, $space-xs);
+  }
+}
+
+// Tarjetas de proyectos
+.projects {
+  @include flex(column, flex-start, stretch, $space-xxl);
+
+  &__head {
+    @include flex(column, flex-start, flex-start, $space-md);
+
+    @include respond($bp-desktop) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: $space-lg;
+    }
+  }
+
+  &__intro {
+    @include flex(column, flex-start, stretch, $space-md);
+    max-width: 856px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: $space-lg;
+
+    @include respond($bp-tablet) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}
+
+.project-card {
+  @include flex(column, flex-start, stretch);
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  &__body {
+    position: relative;
+    @include flex(column, flex-start, flex-start, $space-xs);
+    margin: -32px $space-md 0;
+    padding: $space-lg;
+    background-color: $color-white;
+    box-shadow: $shadow-card;
+  }
+
+  &__place {
+    @include flex(row, flex-start, center, $space-xs);
+    font-size: 16px;
+    line-height: 24px;
+
+    &::before {
+      content: '';
+      width: 20px;
+      height: 10px;
+      background-color: $color-green-dark;
+    }
+  }
+
+  &__title {
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 700;
+    color: $color-black;
+  }
+
+  &__link {
+    @include flex(row, flex-start, center, $space-xs);
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+    color: $color-blue;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Llamado a la acción
+.cta {
+  color: $color-white;
+  background:
+    linear-gradient($color-blue-30, $color-blue-30),
+    url('../img/paneles-solares.jpg') center / cover no-repeat;
+  background-color: $color-blue-dark;
+
+  &__inner {
+    max-width: $max-width;
+    min-height: 500px;
+    margin: 0 auto;
+    @include page-gutter;
+    padding-top: $space-xxxl;
+    padding-bottom: $space-xxxl;
+    @include flex(column, center, flex-start);
+  }
+
+  &__panel {
+    @include flex(column, flex-start, flex-start, $space-lg);
+    @include glass($color-blue-50);
+    padding: $space-xl;
+
+    @include respond($bp-desktop) {
+      width: 556px;
+      padding: $space-xxl;
+    }
+  }
+
+  &__buttons {
+    @include flex(row, flex-start, center, $space-md);
+    flex-wrap: wrap;
+  }
+}

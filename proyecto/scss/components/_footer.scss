@@ -1,0 +1,141 @@
+// ---------- Componente: footer ----------
+.footer {
+  color: $color-white;
+  background-color: $color-blue-dark;
+
+  &__inner {
+    @include flex(column, flex-start, stretch, $space-xxl);
+    max-width: $max-width;
+    margin: 0 auto;
+    @include page-gutter;
+    padding-top: $space-xxxl;
+    padding-bottom: $space-xxxl;
+  }
+
+  // Franja "Let's build something together"
+  &__newsletter {
+    @include flex(column, flex-start, flex-start, $space-lg);
+    padding: $space-lg 0;
+    border-top: 1px solid $color-green;
+
+    @include respond($bp-desktop) {
+      flex-direction: row;
+      align-items: center;
+      gap: $space-xxxl;
+    }
+  }
+
+  &__newsletter-text {
+    @include flex(column, flex-start, stretch, $space-xxs);
+    flex: 1 1 0;
+  }
+
+  &__newsletter-title {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+
+  &__newsletter-copy {
+    font-size: 16px;
+    line-height: 24px;
+    color: $color-gray-20;
+  }
+
+  &__newsletter-actions {
+    @include flex(row, flex-start, center, $space-md);
+    flex-wrap: wrap;
+  }
+
+  // Rejilla principal de columnas
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: $space-xl $space-lg;
+
+    @include respond($bp-tablet) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include respond($bp-desktop) {
+      grid-template-columns: 292px repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  &__block {
+    @include flex(column, flex-start, stretch, $space-sm);
+  }
+
+  &__heading {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $color-gray-30;
+  }
+
+  &__address {
+    font-size: 16px;
+    line-height: 24px;
+    font-style: normal;
+    color: $color-gray-20;
+  }
+
+  &__social {
+    @include flex(row, flex-start, center, $space-xs);
+    flex-wrap: wrap;
+  }
+
+  &__list {
+    @include flex(column, flex-start, stretch, $space-sm);
+  }
+
+  &__link {
+    font-size: 16px;
+    line-height: 24px;
+    color: $color-white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // Barra inferior (legales)
+  &__bottom {
+    @include flex(column, flex-start, flex-start, $space-md);
+    padding-top: $space-lg;
+    border-top: 1px solid $color-white-30;
+
+    @include respond($bp-desktop) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__legal {
+    @include flex(row, flex-start, center, $space-md $space-xl);
+    flex-wrap: wrap;
+  }
+
+  &__copy {
+    font-size: 16px;
+    line-height: 24px;
+    color: $color-gray-30;
+  }
+}
+
+.social-btn {
+  @include flex(row, center, center);
+  width: 40px;
+  height: 40px;
+  color: $color-white;
+  border: 1px solid $color-white-30;
+  border-radius: $radius-full;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $color-white-30;
+  }
+}
